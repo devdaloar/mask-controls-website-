@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #6DA7BF;
+  --color-brand-hover: #5B95AD;
+  --color-brand-light: #EAF3F7;
+  --color-brand-dark: #3A6D83;
+  
+  --color-navy-950: #070D16;
+  --color-navy-900: #0B1523;
+  --color-navy-800: #122137;
+  --color-navy-700: #1B2F4C;
+  --color-navy-600: #29446D;
+  
+  --color-metallic: #818286;
+  --color-metallic-light: #949599;
+
+  --font-heading: var(--font-heading), system-ui, -apple-system, sans-serif;
+  --font-body: var(--font-body), system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  --background: #070D16;
+  --foreground: #f8fafc;
+}
+
+html, body {
+  background-color: #070D16 !important;
+  color: #f8fafc;
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #070D16;
+}
+::-webkit-scrollbar-thumb {
+  background: #6DA7BF;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5B95AD;
+}
+
+/* Continuous Infinite Marquees with Zero Gaps */
+@keyframes marqueeLeftToRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes marqueeRightToLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-ltr {
+  display: flex;
+  width: max-content;
+  animation: marqueeLeftToRight 42s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-rtl {
+  display: flex;
+  width: max-content;
+  animation: marqueeRightToLeft 42s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-ltr:hover,
+.animate-marquee-rtl:hover {
+  animation-play-state: paused;
+}
